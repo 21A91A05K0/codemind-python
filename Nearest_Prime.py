@@ -1,26 +1,31 @@
-x=int(input())
-for y in range(x):
-    n=int(input())
-    t=n
-    c=0
-    s=0
-    while(n>0):
-        c+=1
-        for i in range(2,int(n**0.5)+1):
-            if(n%i==0):
-                break
-        else:
+def is_prime(j):
+    i=2
+    v=0
+    while i!=j:
+        if j%i==0:
+            v=1
+        i+=1
+    if v==0:
+        return j
+
+
+x = int(input())
+for i in range(x):
+    y = int(input())
+    b=y
+    for j in range(y,2-1,-1):
+        if is_prime(j):
+            n=j
             break
-        n-=1
-    while(t>0):
-        s+=1
-        for i in range(2,int(t**0.5)+1):
-            if(t%i==0):
-                break
-        else:
+    while b!=0:
+        if is_prime(b):
+            m=b
             break
-        t+=1
-    if(s>=c):
+        b+=1
+    if (y-n)<(m-y):
+        print(n)
+    elif (y-n)==(m-y):
         print(n)
     else:
-        print(t)
+        print(m)
+
